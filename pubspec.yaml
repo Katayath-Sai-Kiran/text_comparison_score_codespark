@@ -26,7 +26,7 @@ screenshots:
 
   - description: 'Demonstrates how to use the text_comparison_score_codespark package to compare two text strings and calculate their similarity score.'
     path: assets/sample.png
-    width: 300
+    width: 500
 
 topics:
 

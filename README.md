@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/main/assets/banner.png" alt="Banner"/>
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/banner.png" alt="Banner"/>
 
 # text_comparison_score_codespark
 
