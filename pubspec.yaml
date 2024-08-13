@@ -1,6 +1,6 @@
 name: text_comparison_score_codespark
 description: "The TextComparisonScore package is a straightforward and efficient tool for comparing two strings and calculating their similarity score using the Levenshtein distance algorithm."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/Katayath-Sai-Kiran/text_comparison_score_codespark
 
 environment:
@@ -26,7 +26,7 @@ screenshots:
 
   - description: 'Demonstrates how to use the text_comparison_score_codespark package to compare two text strings and calculate their similarity score.'
     path: assets/sample.png
-    width: 500
+    width: 300
 
 topics:
 

@@ -25,8 +25,9 @@ class TextComparisonScore {
         } else if (s1[i - 1] == s2[j - 1]) {
           dp[i][j] = dp[i - 1][j - 1]; // No operation needed
         } else {
-          dp[i][j] = 1 + [dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]]
-              .reduce((a, b) => a < b ? a : b); // Minimum of insert, delete, or replace
+          dp[i][j] = 1 +
+              [dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]].reduce((a, b) =>
+                  a < b ? a : b); // Minimum of insert, delete, or replace
         }
       }
     }

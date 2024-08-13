@@ -12,7 +12,8 @@ void main() {
       expect(result, 57.14285714285714);
     });
 
-    test('Match percentage between identical strings "flutter" and "flutter"', () {
+    test('Match percentage between identical strings "flutter" and "flutter"',
+        () {
       String string1 = "flutter";
       String string2 = "flutter";
 
@@ -21,7 +22,9 @@ void main() {
       expect(result, 100.0);
     });
 
-    test('Match percentage between completely different strings "apple" and "orange"', () {
+    test(
+        'Match percentage between completely different strings "apple" and "orange"',
+        () {
       String string1 = "apple";
       String string2 = "orange";
 
