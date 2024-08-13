@@ -15,7 +15,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  text_comparison_score_codespark: ^0.0.1
+  text_comparison_score_codespark: ^0.0.2
 ```
 
 Then run:
