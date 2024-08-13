@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/main/assets/banner.png" alt="Banner"/>
+
 # text_comparison_score_codespark
 
 A simple yet powerful Dart package that allows you to compare two strings and determine the match percentage between them using the Levenshtein distance algorithm.
