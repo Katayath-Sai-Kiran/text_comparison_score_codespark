@@ -5,12 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2024-08-13
+
+### Added
+- Added `caseSensitive` parameter to `matchPercentage` method for optional case sensitivity in string comparison.
+- Updated `_levenshteinDistance` method to handle case sensitivity based on the `caseSensitive` parameter.
+
 ## [0.0.3] - 2024-08-13
 
 ### Added
 - Fixed Dart Formatter Issues
 - Fixed Homepage Issue
-
 
 ## [0.0.2] - 2024-08-13
 
@@ -29,4 +34,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Provided comprehensive unit tests for various cases including identical strings, completely different strings, and comparisons involving empty strings.
 - Detailed documentation and usage examples in the `README.md`.
 - License: MIT.
-

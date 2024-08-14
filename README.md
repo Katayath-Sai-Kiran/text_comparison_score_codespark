@@ -1,3 +1,4 @@
+
 <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/banner.png" alt="Banner"/>
 
 # text_comparison_score_codespark
@@ -8,6 +9,7 @@ A simple yet powerful Dart package that allows you to compare two strings and de
 
 - **Levenshtein Distance**: Calculates the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into the other.
 - **Match Percentage**: Returns the match percentage between two strings, indicating how similar they are.
+- **Case Sensitivity Option**: Allows optional case sensitivity in string comparisons.
 
 ## Installation
 
@@ -15,7 +17,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  text_comparison_score_codespark: ^0.0.3
+  text_comparison_score_codespark: ^0.0.4
 ```
 
 Then run:
@@ -62,8 +64,14 @@ void main() {
   // Example 5: Both strings are empty
   double bothEmptyMatchPercent = TextComparisonScore.matchPercentage(emptyString, emptyString);
   print("Match Percentage between two empty strings: $bothEmptyMatchPercent%");
-}
 
+  // Example 6: Case insensitive comparison
+  String caseSensitive1 = "Hello";
+  String caseSensitive2 = "hello";
+
+  double caseSensitiveMatchPercent = TextComparisonScore.matchPercentage(caseSensitive1, caseSensitive2, caseSensitive: false);
+  print("Match Percentage between '$caseSensitive1' and '$caseSensitive2' (case insensitive): $caseSensitiveMatchPercent%");
+}
 ```
 
 ### Example Output
@@ -74,6 +82,7 @@ void main() {
 - **Match Percentage between completely different strings** `'apple'` **and** `'orange'`: `0.0%`
 - **Match Percentage between** `'kitten'` **and an empty string**: `0.0%`
 - **Match Percentage between two empty strings**: `100.0%`
+- **Match Percentage between** `'Hello'` **and** `'hello'` **(case insensitive)**: `100.0%`
 ```
 
 ## Future Updates
@@ -81,34 +90,20 @@ void main() {
 In future versions, this package will include:
 
 1. **Jaro-Winkler Distance**: A string metric for measuring the edit distance between two sequences, giving more favorable ratings to strings that match from the beginning for a set prefix length.
-
 2. **Cosine Similarity**: Measures the cosine of the angle between two vectors, which can be used for similarity between text strings.
-
 3. **Soundex**: A phonetic algorithm for indexing names by sound, as pronounced in English.
-
 4. **Damerau-Levenshtein Distance**: Extends Levenshtein distance by considering transpositions of two adjacent characters as a single edit.
-
 5. **Hamming Distance**: Measures the number of differing bits between two binary strings.
-
 6. **Normalized Distance Measures**: Provides normalized versions of distance metrics to return values between 0 and 1.
-
 7. **String Tokenization & N-grams**: Support for splitting strings into tokens and analyzing n-grams.
-
 8. **Customizable Weighting**: Allows users to assign custom weights to different types of edits.
-
 9. **Multi-Language Support**: Ensures that algorithms work with various character sets and languages.
-
 10. **Threshold-based Matching**: Returns whether the match percentage is above a user-defined threshold.
-
 11. **Performance Optimization for Large Texts**: Implements efficient data structures and parallel processing to handle large texts.
-
 12. **Batch Comparison**: Allows users to compare a single string against a batch of other strings, returning the most similar ones.
-
 13. **Detailed Comparison Report**: Provides a detailed report with multiple similarity metrics between two strings.
-
 14. **API for Custom Comparison Functions**: Enables users to define and plug in their custom comparison functions.
 
 ## License
 
 This project is licensed under the MIT License.
-

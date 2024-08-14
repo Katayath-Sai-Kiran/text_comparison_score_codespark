@@ -7,7 +7,12 @@ class TextComparisonScore {
   /// This method uses dynamic programming to efficiently calculate the distance.
   ///
   /// Returns an integer representing the Levenshtein distance between the two strings.
-  static int _levenshteinDistance(String s1, String s2) {
+  static int _levenshteinDistance(String s1, String s2, bool caseSensitive) {
+    if (caseSensitive) {
+      s1 = s1.toLowerCase();
+      s2 = s2.toLowerCase();
+    }
+
     // Lengths of the two strings
     int m = s1.length;
     int n = s2.length;
@@ -48,7 +53,8 @@ class TextComparisonScore {
   /// double match = TextComparisonScore.matchPercentage('kitten', 'sitting');
   /// print(match); // Output: 57.14285714285714
   /// ```
-  static double matchPercentage(String s1, String s2) {
+  static double matchPercentage(String s1, String s2,
+      {bool caseSensitive = true}) {
     // Determine the length of the longer string
     int maxLength = s1.length > s2.length ? s1.length : s2.length;
 
@@ -56,7 +62,7 @@ class TextComparisonScore {
     if (maxLength == 0) return 100.0;
 
     // Calculate the Levenshtein distance between the strings
-    int distance = _levenshteinDistance(s1, s2);
+    int distance = _levenshteinDistance(s1, s2, caseSensitive);
 
     // Calculate and return the match percentage
     double matchPercent = ((maxLength - distance) / maxLength) * 100;
