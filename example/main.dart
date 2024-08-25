@@ -7,7 +7,7 @@ void main() {
   String string1 = "kitten";
   String string2 = "sitting";
 
-  double matchPercent = TextComparisonScore.matchPercentage(string1, string2);
+  double matchPercent = TextComparisonScore.calculateScore(string1, string2);
   log("Match Percentage between '$string1' and '$string2': $matchPercent%");
 
   // Example 2: Identical strings
@@ -15,7 +15,7 @@ void main() {
   String identical2 = "flutter";
 
   double identicalMatchPercent =
-      TextComparisonScore.matchPercentage(identical1, identical2);
+      TextComparisonScore.calculateScore(identical1, identical2);
   log("Match Percentage between identical strings '$identical1' and '$identical2': $identicalMatchPercent%");
 
   // Example 3: Completely different strings
@@ -23,26 +23,26 @@ void main() {
   String different2 = "orange";
 
   double differentMatchPercent =
-      TextComparisonScore.matchPercentage(different1, different2);
+      TextComparisonScore.calculateScore(different1, different2);
   log("Match Percentage between completely different strings '$different1' and '$different2': $differentMatchPercent%");
 
   // Example 4: One string is empty
   String emptyString = "";
 
   double emptyMatchPercent =
-      TextComparisonScore.matchPercentage(string1, emptyString);
+      TextComparisonScore.calculateScore(string1, emptyString);
   log("Match Percentage between '$string1' and an empty string: $emptyMatchPercent%");
 
   // Example 5: Both strings are empty
   double bothEmptyMatchPercent =
-      TextComparisonScore.matchPercentage(emptyString, emptyString);
+      TextComparisonScore.calculateScore(emptyString, emptyString);
   log("Match Percentage between two empty strings: $bothEmptyMatchPercent%");
 
   // Example 6: Case insensitive comparison
   String caseSensitive1 = "Hello";
   String caseSensitive2 = "hello";
 
-  double caseSensitiveMatchPercent = TextComparisonScore.matchPercentage(
+  double caseSensitiveMatchPercent = TextComparisonScore.calculateScore(
       caseSensitive1, caseSensitive2,
       caseSensitive: false);
   log("Match Percentage between '$caseSensitive1' and '$caseSensitive2' (case insensitive): $caseSensitiveMatchPercent%");
@@ -51,7 +51,7 @@ void main() {
   String caseSensitive3 = "Hello";
   String caseSensitive4 = "hello";
 
-  double caseSensitiveMatchPercent2 = TextComparisonScore.matchPercentage(
+  double caseSensitiveMatchPercent2 = TextComparisonScore.calculateScore(
       caseSensitive1, caseSensitive2,
       caseSensitive: true);
   log("Match Percentage between '$caseSensitive3' and '$caseSensitive4' (case sensitive): $caseSensitiveMatchPercent2%");
