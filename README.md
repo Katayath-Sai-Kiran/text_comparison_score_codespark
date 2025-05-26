@@ -91,9 +91,10 @@ In future versions, this package will include:
 12. **Detailed Comparison Report**: Provides a detailed report with multiple similarity metrics between two strings.
 13. **API for Custom Comparison Functions**: Enables users to define and plug in their custom comparison functions.
 
-## License
+## 👨‍💻 Maintainer
 
-This project is licensed under the MIT License.
+Developed with 💙 by [Katayath Sai Kiran](https://github.com/Katayath-Sai-Kiran)
+📬 Feel free to contribute or suggest improvements!
 ```
 
 

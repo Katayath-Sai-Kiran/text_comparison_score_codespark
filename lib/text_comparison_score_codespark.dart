@@ -36,8 +36,9 @@ class TextComparisonScore {
         } else if (s1[i - 1] == s2[j - 1]) {
           dp[i][j] = dp[i - 1][j - 1]; // No operation needed
         } else {
-          dp[i][j] = 1 + [dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]]
-              .reduce((a, b) => a < b ? a : b); // Minimum of insert, delete, or replace
+          dp[i][j] = 1 +
+              [dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]].reduce((a, b) =>
+                  a < b ? a : b); // Minimum of insert, delete, or replace
         }
       }
     }
@@ -55,7 +56,8 @@ class TextComparisonScore {
   /// - [caseSensitive]: Whether the comparison should be case sensitive.
   ///
   /// Returns a double representing the Jaro-Winkler distance between 0.0 (no match) and 1.0 (exact match).
-  static double _jaroWinklerDistance(String s1, String s2, {bool caseSensitive = true}) {
+  static double _jaroWinklerDistance(String s1, String s2,
+      {bool caseSensitive = true}) {
     if (s1.isEmpty || s2.isEmpty) {
       return 0.0; // Return 0 if either string is empty
     }
@@ -131,7 +133,8 @@ class TextComparisonScore {
   /// print(match); // Output: 57.14285714285714
   /// ```
   static double calculateScore(String s1, String s2,
-      {ComparisonAlgorithm algorithm = ComparisonAlgorithm.levenshtein, bool caseSensitive = true}) {
+      {ComparisonAlgorithm algorithm = ComparisonAlgorithm.levenshtein,
+      bool caseSensitive = true}) {
     if (algorithm == ComparisonAlgorithm.levenshtein) {
       // Calculate Levenshtein distance and return match percentage
       int distance = _levenshteinDistance(s1, s2, caseSensitive);
@@ -140,7 +143,7 @@ class TextComparisonScore {
       return ((maxLength - distance) / maxLength) * 100;
     } else if (algorithm == ComparisonAlgorithm.jaroWinkler) {
       // Calculate Jaro-Winkler distance and return match percentage
-      return _jaroWinklerDistance(s1, s2, caseSensitive:caseSensitive) * 100;
+      return _jaroWinklerDistance(s1, s2, caseSensitive: caseSensitive) * 100;
     } else {
       throw ArgumentError('Unsupported algorithm: $algorithm');
     }
