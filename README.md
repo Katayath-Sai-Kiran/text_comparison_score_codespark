@@ -1,10 +1,60 @@
 
 
-<img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/banner.png" alt="Banner"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/banner.png" alt="Banner"/>
+</p>
 
 # text_comparison_score_codespark
 
 A simple yet powerful Dart package that allows you to compare two strings and determine the match percentage between them using multiple algorithms, including the Levenshtein distance and Jaro-Winkler distance.
+
+<p align="center">
+  Built by <a href="https://ksaikiran.dev">Katayath Sai Kiran</a> · <a href="https://github.com/Katayath-Sai-Kiran">@Katayath-Sai-Kiran</a>
+</p>
+
+<p align="center">
+  <a href="https://pub.dev/packages/text_comparison_score_codespark">
+    <img src="https://img.shields.io/pub/v/text_comparison_score_codespark?label=pub.dev&labelColor=333940&logo=dart" alt="pub.dev version"/>
+  </a>
+  <a href="https://pub.dev/packages/text_comparison_score_codespark/score">
+    <img src="https://img.shields.io/pub/points/text_comparison_score_codespark?label=pub%20points&labelColor=333940" alt="pub points"/>
+  </a>
+  <a href="https://pub.dev/packages/text_comparison_score_codespark">
+    <img src="https://img.shields.io/pub/likes/text_comparison_score_codespark?label=likes&labelColor=333940" alt="pub likes"/>
+  </a>
+  <a href="https://github.com/Katayath-Sai-Kiran/text_comparison_score_codespark/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?labelColor=333940" alt="MIT License"/>
+  </a>
+  <a href="https://flutter.dev">
+    <img src="https://img.shields.io/badge/platform-flutter-02569B?logo=flutter&labelColor=333940" alt="Platform: Flutter"/>
+  </a>
+  <img src="https://img.shields.io/badge/category-String%20Similarity-6A0DAD?labelColor=333940" alt="String Similarity"/>
+</p>
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/screenshot_1.png" width="260" alt="Demo — score overview"/>
+        <br/><sub><b>Score overview</b></sub>
+      </td>
+      <td align="center">
+        <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/screenshot_2.png" width="260" alt="Demo — algorithm comparison"/>
+        <br/><sub><b>Algorithm comparison</b></sub>
+      </td>
+      <td align="center">
+        <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/screenshot_3.png" width="260" alt="Demo — edge cases"/>
+        <br/><sub><b>Edge cases</b></sub>
+      </td>
+    </tr>
+  </table>
+</p>
+
+---
 
 ## Features
 

@@ -5,8 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.7] - 2026-06-03
+
+### Documentation
+- Added pub.dev version, pub points, pub likes, license, platform, and category badges to `README.md`.
+- Added screenshots gallery to `README.md` (3 iPhone 15 Plus simulator captures).
+- Registered all three demo screenshots in `pubspec.yaml` so pub.dev displays them on the package page.
+
+### Example
+- Rewrote `example/main.dart` as a full Flutter UI demo app showcasing all 8 comparison scenarios with score bars, algorithm badges, and explanatory captions.
+
+---
+
 ## [0.0.6] - 2024-08-25
-### - Added Maintainer
+
+### Documentation
+- Added maintainer credit to `README.md`.
+
+---
+
 ## [0.0.5] - 2024-08-25
 
 ### Added
@@ -15,17 +32,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added support for comparing strings using Jaro-Winkler Distance and calculating match percentage.
 - Updated `README.md` with usage examples and details on when to use the Jaro-Winkler algorithm.
 
+---
+
 ## [0.0.4] - 2024-08-13
 
 ### Added
 - Added `caseSensitive` parameter to `matchPercentage` method for optional case sensitivity in string comparison.
 - Updated `_levenshteinDistance` method to handle case sensitivity based on the `caseSensitive` parameter.
 
+---
+
 ## [0.0.3] - 2024-08-13
 
-### Added
-- Fixed Dart Formatter Issues
-- Fixed Homepage Issue
+### Fixed
+- Fixed Dart Formatter Issues.
+- Fixed Homepage Issue.
+
+---
 
 ## [0.0.2] - 2024-08-13
 
@@ -34,6 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved documentation with additional examples and explanations for various use cases of the `TextComparisonScore` class.
 - Updated `README.md` with a more detailed usage guide and visual aids.
 - Enhanced package performance and code quality with minor optimizations.
+
+---
 
 ## [0.0.1] - 2024-08-09
 

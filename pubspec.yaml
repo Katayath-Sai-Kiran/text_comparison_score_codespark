@@ -1,6 +1,6 @@
 name: text_comparison_score_codespark
 description: "The TextComparisonScore package is a straightforward and efficient tool for comparing two strings and calculating their similarity score using the Levenshtein distance algorithm."
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/Katayath-Sai-Kiran/text_comparison_score_codespark
 
 environment:
@@ -23,6 +23,15 @@ dev_dependencies:
 flutter:
 
 screenshots:
+
+  - description: 'Score overview — live similarity scores for multiple string pairs.'
+    path: assets/screenshot_1.png
+
+  - description: 'Algorithm comparison — Levenshtein vs Jaro-Winkler side by side.'
+    path: assets/screenshot_2.png
+
+  - description: 'Edge cases — identical strings, empty strings, and case-sensitivity.'
+    path: assets/screenshot_3.png
 
   - description: 'Demonstrates how to use the text_comparison_score_codespark package to compare two text strings and calculate their similarity score.'
     path: assets/sample.png
