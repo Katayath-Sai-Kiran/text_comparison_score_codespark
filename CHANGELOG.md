@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8] - 2026-06-05
+
+### Documentation
+- Rewrote `description` in `pubspec.yaml` to a keyword-rich, SEO-optimised sentence covering
+  fuzzy matching, string similarity, match percentages, Levenshtein, and Jaro-Winkler.
+- Added `topics` to `pubspec.yaml` (`string-similarity`, `fuzzy-matching`, `string-comparison`,
+  `text-similarity`, `levenshtein-distance`) for improved pub.dev search ranking.
+- Replaced the one-line README description with a full SEO-focused sentence targeting common
+  search terms (similarity score, fuzzy matching, string distance, Dart, Flutter).
+- Moved author / maintainer credit to directly under the package title in `README.md`.
+- Added **Use Cases** section to `README.md` listing real-world scenarios: fuzzy search,
+  typo detection, duplicate matching, name matching, data validation, and more.
+
+
 ## [0.0.7] - 2026-06-03
 
 ### Documentation

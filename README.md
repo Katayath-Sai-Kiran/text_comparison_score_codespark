@@ -1,12 +1,10 @@
-
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/Katayath-Sai-Kiran/text_comparison_score_codespark/master/assets/banner.png" alt="Banner"/>
 </p>
 
 # text_comparison_score_codespark
 
-A simple yet powerful Dart package that allows you to compare two strings and determine the match percentage between them using multiple algorithms, including the Levenshtein distance and Jaro-Winkler distance.
+Calculate string similarity, text comparison scores, match percentages, fuzzy matching results, and string distance metrics using Levenshtein Distance, Jaro-Winkler, and other text comparison algorithms in Dart and Flutter.
 
 <p align="center">
   Built by <a href="https://ksaikiran.dev">Katayath Sai Kiran</a> · <a href="https://github.com/Katayath-Sai-Kiran">@Katayath-Sai-Kiran</a>
@@ -31,9 +29,7 @@ A simple yet powerful Dart package that allows you to compare two strings and de
   <img src="https://img.shields.io/badge/category-String%20Similarity-6A0DAD?labelColor=333940" alt="String Similarity"/>
 </p>
 
----
-
-## 📸 Screenshots
+## Screenshots
 
 <p align="center">
   <table>
@@ -54,7 +50,6 @@ A simple yet powerful Dart package that allows you to compare two strings and de
   </table>
 </p>
 
----
 
 ## Features
 
@@ -123,6 +118,22 @@ void main() {
 - **Match Percentage between** `'Hello'` **and** `'hello'` **(case insensitive)**: `100.0%`
 ```
 
+## Use Cases
+
+- String similarity detection
+- Text similarity analysis
+- Fuzzy string matching
+- Fuzzy search
+- String comparison
+- Text comparison
+- Match percentage calculation
+- Confidence score generation
+- Typo detection
+- Search suggestions
+- Duplicate record matching
+- Name matching
+- Data validation
+
 ## Future Updates
 
 In future versions, this package will include:
@@ -141,11 +152,12 @@ In future versions, this package will include:
 12. **Detailed Comparison Report**: Provides a detailed report with multiple similarity metrics between two strings.
 13. **API for Custom Comparison Functions**: Enables users to define and plug in their custom comparison functions.
 
-## 👨‍💻 Maintainer
+## Maintainer
 
 Developed with 💙 by [Katayath Sai Kiran](https://github.com/Katayath-Sai-Kiran)
-📬 Feel free to contribute or suggest improvements!
-```
+Feel free to contribute or suggest improvements!
+
+
 
 
 
