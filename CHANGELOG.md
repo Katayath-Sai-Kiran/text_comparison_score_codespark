@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.9] - 2026-06-05
+
+### Fixed
+- Trimmed `description` in `pubspec.yaml` from 228 chars to 167 chars to satisfy
+  the pub.dev 180-character limit and avoid a pub points deduction.
+
+
 ## [0.0.8] - 2026-06-05
 
 ### Documentation
@@ -29,14 +36,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Example
 - Rewrote `example/main.dart` as a full Flutter UI demo app showcasing all 8 comparison scenarios with score bars, algorithm badges, and explanatory captions.
 
----
 
 ## [0.0.6] - 2024-08-25
 
 ### Documentation
 - Added maintainer credit to `README.md`.
 
----
 
 ## [0.0.5] - 2024-08-25
 
@@ -46,7 +51,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added support for comparing strings using Jaro-Winkler Distance and calculating match percentage.
 - Updated `README.md` with usage examples and details on when to use the Jaro-Winkler algorithm.
 
----
 
 ## [0.0.4] - 2024-08-13
 
@@ -54,7 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `caseSensitive` parameter to `matchPercentage` method for optional case sensitivity in string comparison.
 - Updated `_levenshteinDistance` method to handle case sensitivity based on the `caseSensitive` parameter.
 
----
 
 ## [0.0.3] - 2024-08-13
 
@@ -62,7 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Dart Formatter Issues.
 - Fixed Homepage Issue.
 
----
 
 ## [0.0.2] - 2024-08-13
 
@@ -72,7 +74,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `README.md` with a more detailed usage guide and visual aids.
 - Enhanced package performance and code quality with minor optimizations.
 
----
 
 ## [0.0.1] - 2024-08-09
 

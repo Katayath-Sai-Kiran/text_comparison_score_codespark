@@ -59,6 +59,22 @@ Calculate string similarity, text comparison scores, match percentages, fuzzy ma
 - **Case Sensitivity Option**: Allows optional case sensitivity in string comparisons.
 - **Multiple Algorithms**: Choose between different algorithms, such as Levenshtein and Jaro-Winkler, for your comparison needs.
 
+## Use Cases
+
+- String similarity detection
+- Text similarity analysis
+- Fuzzy string matching
+- Fuzzy search
+- String comparison
+- Text comparison
+- Match percentage calculation
+- Confidence score generation
+- Typo detection
+- Search suggestions
+- Duplicate record matching
+- Name matching
+- Data validation
+
 ## Installation
 
 Add the following to your `pubspec.yaml`:
@@ -118,21 +134,7 @@ void main() {
 - **Match Percentage between** `'Hello'` **and** `'hello'` **(case insensitive)**: `100.0%`
 ```
 
-## Use Cases
 
-- String similarity detection
-- Text similarity analysis
-- Fuzzy string matching
-- Fuzzy search
-- String comparison
-- Text comparison
-- Match percentage calculation
-- Confidence score generation
-- Typo detection
-- Search suggestions
-- Duplicate record matching
-- Name matching
-- Data validation
 
 ## Future Updates
 
