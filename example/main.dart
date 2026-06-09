@@ -100,6 +100,32 @@ const List<_Example> _examples = [
     s2: '',
     algorithm: ComparisonAlgorithm.levenshtein,
   ),
+  _Example(
+    label: 'DL — transposition typo',
+    description: '"teh" vs "the" is a single adjacent transposition.\n'
+        'Damerau-Levenshtein counts it as 1 edit (66.67 %),\n'
+        'while standard Levenshtein counts 2 edits (33.33 %).',
+    s1: 'teh',
+    s2: 'the',
+    algorithm: ComparisonAlgorithm.damerauLevenshtein,
+  ),
+  _Example(
+    label: 'DL — adjacent swap',
+    description: '"ab" vs "ba": a pure swap of two adjacent characters.\n'
+        'Damerau-Levenshtein scores this at 50 % (1 edit out of 2).',
+    s1: 'ab',
+    s2: 'ba',
+    algorithm: ComparisonAlgorithm.damerauLevenshtein,
+  ),
+  _Example(
+    label: 'DL — real-world typo',
+    description: '"recieve" is a common misspelling of "receive".\n'
+        'Damerau-Levenshtein correctly identifies the ie↔ei swap\n'
+        'as a single transposition.',
+    s1: 'recieve',
+    s2: 'receive',
+    algorithm: ComparisonAlgorithm.damerauLevenshtein,
+  ),
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -150,7 +176,7 @@ class _DemoHomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                 child: Text(
-                  'String similarity powered by Levenshtein & Jaro-Winkler',
+                  'Levenshtein · Damerau-Levenshtein · Jaro-Winkler',
                   style: TextStyle(
                     color: colorScheme.onPrimary.withValues(alpha: 0.85),
                     fontSize: 13,
@@ -426,20 +452,38 @@ class _AlgorithmBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isJaro = algorithm == ComparisonAlgorithm.jaroWinkler;
     final cs = Theme.of(context).colorScheme;
+
+    final (label, bgColor, fgColor) = switch (algorithm) {
+      ComparisonAlgorithm.jaroWinkler => (
+          'Jaro-Winkler',
+          cs.tertiaryContainer,
+          cs.onTertiaryContainer,
+        ),
+      ComparisonAlgorithm.damerauLevenshtein => (
+          'Damerau-Levenshtein',
+          cs.secondaryContainer,
+          cs.onSecondaryContainer,
+        ),
+      ComparisonAlgorithm.levenshtein => (
+          'Levenshtein',
+          cs.primaryContainer,
+          cs.onPrimaryContainer,
+        ),
+    };
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: isJaro ? cs.tertiaryContainer : cs.primaryContainer,
+        color: bgColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
-        isJaro ? 'Jaro-Winkler' : 'Levenshtein',
+        label,
         style: TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w600,
-          color: isJaro ? cs.onTertiaryContainer : cs.onPrimaryContainer,
+          color: fgColor,
         ),
       ),
     );

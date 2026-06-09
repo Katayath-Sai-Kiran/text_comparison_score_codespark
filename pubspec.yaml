@@ -1,6 +1,6 @@
 name: text_comparison_score_codespark
-description: "String similarity for Dart & Flutter. Calculate match percentages using Levenshtein Distance and Jaro-Winkler. Supports fuzzy matching and case-insensitive comparison."
-version: 0.0.9
+description: "String similarity for Dart & Flutter. Calculate match percentages using Levenshtein, Damerau-Levenshtein, and Jaro-Winkler. Supports fuzzy matching and case-insensitive comparison."
+version: 1.0.0
 homepage: https://github.com/Katayath-Sai-Kiran/text_comparison_score_codespark
 
 environment:

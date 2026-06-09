@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-06-09
+
+### Added
+- **Damerau-Levenshtein Distance** algorithm (`ComparisonAlgorithm.damerauLevenshtein`).
+  - Extends standard Levenshtein distance by treating adjacent character transpositions
+    (e.g. `"teh"` → `"the"`) as a single edit rather than two, producing noticeably more
+    accurate scores for real-world keyboard typos.
+  - Implemented using the Optimal String Alignment (OSA) approach — same O(m×n) time and
+    space complexity as the existing Levenshtein algorithm.
+- Added unit tests covering transposition detection, identity, empty-string, and
+  case-insensitive edge cases for the new algorithm.
+
+### Documentation
+- Updated `README.md`: added Damerau-Levenshtein to Features, Usage examples with
+  side-by-side output vs standard Levenshtein, and removed it from Future Updates.
+- Bumped installation snippet version to `^0.1.0`.
+
+
 ## [0.0.9] - 2026-06-05
 
 ### Fixed

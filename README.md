@@ -4,7 +4,7 @@
 
 # text_comparison_score_codespark
 
-Calculate string similarity, text comparison scores, match percentages, fuzzy matching results, and string distance metrics using Levenshtein Distance, Jaro-Winkler, and other text comparison algorithms in Dart and Flutter.
+Calculate string similarity, text comparison scores, match percentages, fuzzy matching results, and string distance metrics using Levenshtein Distance, Damerau-Levenshtein Distance, Jaro-Winkler, and other text comparison algorithms in Dart and Flutter.
 
 <p align="center">
   Built by <a href="https://ksaikiran.dev">Katayath Sai Kiran</a> · <a href="https://github.com/Katayath-Sai-Kiran">@Katayath-Sai-Kiran</a>
@@ -54,10 +54,11 @@ Calculate string similarity, text comparison scores, match percentages, fuzzy ma
 ## Features
 
 - **Levenshtein Distance**: Calculates the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into the other.
+- **Damerau-Levenshtein Distance**: Extends Levenshtein distance by treating adjacent character transpositions (e.g. `"teh"` → `"the"`) as a single edit, producing more accurate scores for real-world typos.
 - **Jaro-Winkler Distance**: Measures the similarity between two strings, taking into account the number of matching characters and transpositions, with a boost for common prefixes.
 - **Match Percentage**: Returns the match percentage between two strings, indicating how similar they are.
 - **Case Sensitivity Option**: Allows optional case sensitivity in string comparisons.
-- **Multiple Algorithms**: Choose between different algorithms, such as Levenshtein and Jaro-Winkler, for your comparison needs.
+- **Multiple Algorithms**: Choose between different algorithms — Levenshtein, Damerau-Levenshtein, and Jaro-Winkler — for your comparison needs.
 
 ## Use Cases
 
@@ -81,7 +82,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  text_comparison_score_codespark: ^0.0.5
+  text_comparison_score_codespark: ^1.0.0
 ```
 
 Then run:
@@ -122,6 +123,16 @@ void main() {
 
   double caseSensitiveMatchPercent = TextComparisonScore.calculateScore(caseSensitive1, caseSensitive2, caseSensitive: false);
   print("Match Percentage between '$caseSensitive1' and '$caseSensitive2' (case insensitive): $caseSensitiveMatchPercent%");
+
+  // Example 5: Damerau-Levenshtein — better typo handling via transpositions
+  // "teh" vs "the" is a single transposition; standard Levenshtein counts it as 2 edits
+  String typo = "teh";
+  String correct = "the";
+
+  double dlMatchPercent = TextComparisonScore.calculateScore(typo, correct, algorithm: ComparisonAlgorithm.damerauLevenshtein);
+  double levMatchPercent = TextComparisonScore.calculateScore(typo, correct, algorithm: ComparisonAlgorithm.levenshtein);
+  print("Damerau-Levenshtein Match Percentage between '$typo' and '$correct': $dlMatchPercent%");
+  print("Levenshtein Match Percentage between '$typo' and '$correct': $levMatchPercent%");
 }
 ```
 
@@ -132,6 +143,8 @@ void main() {
 - **Jaro-Winkler Match Percentage between** `'kitten'` **and** `'sitting'`: `74.74%`
 - **Match Percentage between identical strings** `'flutter'` **and** `'flutter'`: `100.0%`
 - **Match Percentage between** `'Hello'` **and** `'hello'` **(case insensitive)**: `100.0%`
+- **Damerau-Levenshtein Match Percentage between** `'teh'` **and** `'the'`: `66.67%`
+- **Levenshtein Match Percentage between** `'teh'` **and** `'the'`: `33.33%`
 ```
 
 
@@ -142,17 +155,16 @@ In future versions, this package will include:
 
 1. **Cosine Similarity**: Measures the cosine of the angle between two vectors, which can be used for similarity between text strings.
 2. **Soundex**: A phonetic algorithm for indexing names by sound, as pronounced in English.
-3. **Damerau-Levenshtein Distance**: Extends Levenshtein distance by considering transpositions of two adjacent characters as a single edit.
-4. **Hamming Distance**: Measures the number of differing bits between two binary strings.
-5. **Normalized Distance Measures**: Provides normalized versions of distance metrics to return values between 0 and 1.
-6. **String Tokenization & N-grams**: Support for splitting strings into tokens and analyzing n-grams.
-7. **Customizable Weighting**: Allows users to assign custom weights to different types of edits.
-8. **Multi-Language Support**: Ensures that algorithms work with various character sets and languages.
-9. **Threshold-based Matching**: Returns whether the match percentage is above a user-defined threshold.
-10. **Performance Optimization for Large Texts**: Implements efficient data structures and parallel processing to handle large texts.
-11. **Batch Comparison**: Allows users to compare a single string against a batch of other strings, returning the most similar ones.
-12. **Detailed Comparison Report**: Provides a detailed report with multiple similarity metrics between two strings.
-13. **API for Custom Comparison Functions**: Enables users to define and plug in their custom comparison functions.
+3. **Hamming Distance**: Measures the number of differing bits between two binary strings.
+4. **Normalized Distance Measures**: Provides normalized versions of distance metrics to return values between 0 and 1.
+5. **String Tokenization & N-grams**: Support for splitting strings into tokens and analyzing n-grams.
+6. **Customizable Weighting**: Allows users to assign custom weights to different types of edits.
+7. **Multi-Language Support**: Ensures that algorithms work with various character sets and languages.
+8. **Threshold-based Matching**: Returns whether the match percentage is above a user-defined threshold.
+9. **Performance Optimization for Large Texts**: Implements efficient data structures and parallel processing to handle large texts.
+10. **Batch Comparison**: Allows users to compare a single string against a batch of other strings, returning the most similar ones.
+11. **Detailed Comparison Report**: Provides a detailed report with multiple similarity metrics between two strings.
+12. **API for Custom Comparison Functions**: Enables users to define and plug in their custom comparison functions.
 
 ## Maintainer
 

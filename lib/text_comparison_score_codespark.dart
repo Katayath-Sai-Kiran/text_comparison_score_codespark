@@ -2,6 +2,7 @@
 enum ComparisonAlgorithm {
   levenshtein,
   jaroWinkler,
+  damerauLevenshtein,
 }
 
 /// A utility class for comparing two strings and calculating their similarity score.
@@ -116,6 +117,60 @@ class TextComparisonScore {
     return jaroDistance + (prefixLength * 0.1 * (1 - jaroDistance));
   }
 
+  /// Calculates the Damerau-Levenshtein distance between two strings [s1] and [s2].
+  /// Extends the standard Levenshtein distance by treating adjacent transpositions
+  /// (e.g. "teh" → "the") as a single edit rather than two, producing more accurate
+  /// scores for common keyboard typos.
+  ///
+  /// Uses the Optimal String Alignment (OSA) approach with the same O(m×n) complexity
+  /// as the standard Levenshtein algorithm.
+  ///
+  /// - [s1]: The first string to compare.
+  /// - [s2]: The second string to compare.
+  /// - [caseSensitive]: Whether the comparison should be case sensitive.
+  ///
+  /// Returns an integer representing the Damerau-Levenshtein distance between the two strings.
+  static int _damerauLevenshteinDistance(
+      String s1, String s2, bool caseSensitive) {
+    if (!caseSensitive) {
+      s1 = s1.toLowerCase();
+      s2 = s2.toLowerCase();
+    }
+
+    int m = s1.length;
+    int n = s2.length;
+
+    if (m == 0) return n;
+    if (n == 0) return m;
+
+    List<List<int>> dp = List.generate(m + 1, (_) => List.filled(n + 1, 0));
+
+    for (int i = 0; i <= m; i++) { dp[i][0] = i; }
+    for (int j = 0; j <= n; j++) { dp[0][j] = j; }
+
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
+        int cost = s1[i - 1] == s2[j - 1] ? 0 : 1;
+        dp[i][j] = [
+          dp[i - 1][j] + 1,
+          dp[i][j - 1] + 1,
+          dp[i - 1][j - 1] + cost,
+        ].reduce((a, b) => a < b ? a : b);
+
+        // Count adjacent transposition as a single edit
+        if (i > 1 &&
+            j > 1 &&
+            s1[i - 1] == s2[j - 2] &&
+            s1[i - 2] == s2[j - 1]) {
+          int transCost = dp[i - 2][j - 2] + 1;
+          if (transCost < dp[i][j]) dp[i][j] = transCost;
+        }
+      }
+    }
+
+    return dp[m][n];
+  }
+
   /// Calculates the similarity score between two strings [s1] and [s2] based on the specified algorithm.
   ///
   /// The score is calculated using the selected algorithm, and the result is returned as a percentage.
@@ -144,6 +199,12 @@ class TextComparisonScore {
     } else if (algorithm == ComparisonAlgorithm.jaroWinkler) {
       // Calculate Jaro-Winkler distance and return match percentage
       return _jaroWinklerDistance(s1, s2, caseSensitive: caseSensitive) * 100;
+    } else if (algorithm == ComparisonAlgorithm.damerauLevenshtein) {
+      // Calculate Damerau-Levenshtein distance and return match percentage
+      int distance = _damerauLevenshteinDistance(s1, s2, caseSensitive);
+      int maxLength = s1.length > s2.length ? s1.length : s2.length;
+      if (maxLength == 0) return 100.0;
+      return ((maxLength - distance) / maxLength) * 100;
     } else {
       throw ArgumentError('Unsupported algorithm: $algorithm');
     }

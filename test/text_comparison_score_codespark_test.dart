@@ -70,4 +70,47 @@ void main() {
       expect(result, 80.0);
     });
   });
+
+  group('DamerauLevenshtein Tests', () {
+    test('Transposition "teh" vs "the" scores higher than Levenshtein', () {
+      double dl = TextComparisonScore.calculateScore('teh', 'the',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein);
+      double lev = TextComparisonScore.calculateScore('teh', 'the',
+          algorithm: ComparisonAlgorithm.levenshtein);
+      // DL treats the swap as 1 edit (66.7%), Levenshtein counts 2 edits (33.3%)
+      expect(dl, closeTo(66.67, 0.01));
+      expect(dl, greaterThan(lev));
+    });
+
+    test('Adjacent transposition "ab" vs "ba" — distance 1', () {
+      double result = TextComparisonScore.calculateScore('ab', 'ba',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein);
+      expect(result, 50.0); // (2-1)/2 * 100
+    });
+
+    test('Identical strings return 100.0', () {
+      double result = TextComparisonScore.calculateScore('flutter', 'flutter',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein);
+      expect(result, 100.0);
+    });
+
+    test('Empty strings return 100.0', () {
+      double result = TextComparisonScore.calculateScore('', '',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein);
+      expect(result, 100.0);
+    });
+
+    test('One empty string returns 0.0', () {
+      double result = TextComparisonScore.calculateScore('hello', '',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein);
+      expect(result, 0.0);
+    });
+
+    test('Case insensitive transposition', () {
+      double result = TextComparisonScore.calculateScore('TEH', 'the',
+          algorithm: ComparisonAlgorithm.damerauLevenshtein,
+          caseSensitive: false);
+      expect(result, closeTo(66.67, 0.01));
+    });
+  });
 }
